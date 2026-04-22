@@ -5,10 +5,11 @@
         <h1>Pokedex</h1>
        </div>
        <div class="bg-secondary py-5 px-3 d-flex flex-column">
-              <label for="" class="text-white display-6"> Nome ou número agora</label>
-              <input type="text" class="rounded border-none w-25 p-1">
+              <label for="" class="text-white display-6"> Nome ou número</label>
+              <input type="text" class="rounded border-none w-25 p-1" [(ngModel)]="pesquisa">
               <button class="bg-danger text-white p-1 mt-1" style="width: fit-content;">pesquisar</button>
-       </div>
+            </div>
+            {{pesquisa}}
       </div>
 
 
