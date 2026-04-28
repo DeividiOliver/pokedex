@@ -15,6 +15,9 @@ export class App implements OnInit{
   service = inject(HttpService)
   
   ngOnInit(): void {
-    console.log(this.service.obterPokemon());
-  }
-}
+    
+      this.service.obterPokemon().subscribe(resposta => {
+         console.log(resposta);
+  })
+;
+}}
