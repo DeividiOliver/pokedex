@@ -1,15 +1,21 @@
-import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 
 @Injectable({
     providedIn: "root"
 })
 export class HttpService {
+
+    
+ httpClient = inject(HttpClient)
+
+  urlApi = "https://pokeapi.co/api/v2/pokemon/"
+ 
     obterPokemon(): Observable <any> {
-      return of ([
-        'charmander',
-        'squirtle',
-        'bulbasaur'
-      ])
+      return  this.httpClient.get(this.urlApi)
+      return  this.httpClient.get(this.urlApi)
+       
+    
     }
 }
