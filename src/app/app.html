@@ -9,9 +9,12 @@
               <input type="text" class="rounded border-none w-25 p-1" [(ngModel)]="pesquisa">
               <button class="bg-danger text-white p-1 mt-1" style="width: fit-content;">pesquisar</button>
             </div>
-            {{pesquisa}}
-      </div>
+            <!-- <p *ngFor="let item of lista">{{ item?.name }}</p> -->
+            <app-card *ngFor="let item of lista" [nome]="item?.name"></app-card>
 
+            
+            <p class="d-none">{{lista.lenght}}</p>
+      </div>
 
 
 
