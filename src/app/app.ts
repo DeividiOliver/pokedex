@@ -3,7 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { HttpService } from './http.service';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from './components/card/card';
+Linha 6: import { CardComponent } from './components/card/card';
+
 
 @Component({
   selector: 'app-root',
