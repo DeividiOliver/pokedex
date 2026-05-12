@@ -1,0 +1,42 @@
+.pokemon-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: #ef5350; // Cor clássica de Pokébola
+  }
+
+  .image-container {
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 15px;
+    
+    .pokemon-img {
+      width: 120px;
+      height: 120px;
+      filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.1));
+    }
+  }
+
+  .pokemon-id {
+    color: #777;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: block;
+  }
+
+  .pokemon-name {
+    text-transform: capitalize;
+    margin-top: 5px;
+    font-size: 1.4rem;
+    color: #333;
+  }
+}

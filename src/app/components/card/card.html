@@ -1,1 +1,17 @@
-<p>{{ nome }}</p>
+<!-- // deixar esse card bonito! -->
+<div class="border-end">
+    <p>{{getPokemonImage(id)}}</p>
+    <p>{{ nome }}</p>
+    <p>{{id}}</p>
+</div>
+
+<div class="pokemon-card">
+  <div class="image-container">
+    <img [src]="getPokemonImage(id)" [alt]="nome" class="pokemon-img">
+  </div>
+
+  <div class="info">
+    <span class="pokemon-id">#{{ id }}</span>
+    <h3 class="pokemon-name">{{ nome }}</h3>
+  </div>
+</div>

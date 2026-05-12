@@ -8,5 +8,13 @@ import { Component, Input } from '@angular/core';
 })
 export class Card {
   @Input() nome!: string;
+
+  @Input() id!: string;
+
+
+
+  getPokemonImage(id): string {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+  }
 }
 

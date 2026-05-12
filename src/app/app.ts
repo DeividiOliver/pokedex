@@ -19,9 +19,18 @@ export class App implements OnInit{
   lista: any = [];
 
   ngOnInit(): void {
-    
       this.service.obterPokemon().subscribe(resposta => {
-         this.lista = resposta.results;
-  })
-;
-}}
+         this.lista = resposta.results.map(item => ({
+          ...item,
+          id: this.extractIdFromUrl(item.url)
+         }));
+  });
+  }
+
+    
+extractIdFromUrl(url: string){
+    const m = url.match(/\/pokemon\/(\d+)\/?$/);
+    return m ? m[1] : null;
+  }
+
+}
