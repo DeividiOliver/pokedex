@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CardComponent } from './components/card/card';
 import { CommonModule } from '@angular/common';
+import { CardComponent } from './components/card/card';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class AppComponent implements OnInit {
-  // Variável sincronizada com o seu app.html
   pokemonList: any[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
-    // Objeto de teste para validar a renderização no localhost
     this.pokemonList = [
       { 
         id: 1, 
