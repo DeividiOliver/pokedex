@@ -10,14 +10,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class AppComponent implements OnInit {
-  // Padronizado para 'lista' para bater com o seu app.html
-  lista: any[] = [];
+  // Variável sincronizada com o seu app.html
+  pokemonList: any[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
-    // Dados de teste para validar o funcionamento do localhost
-    this.lista = [
+    // Objeto de teste para validar a renderização no localhost
+    this.pokemonList = [
       { 
         id: 1, 
         name: 'bulbasaur', 
