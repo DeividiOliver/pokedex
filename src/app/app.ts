@@ -9,19 +9,14 @@ import { CardComponent } from './components/card/card';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit { // Verifique se o nome é EXATAMENTE AppComponent
   pokemonList: any[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
     this.pokemonList = [
-      { 
-        id: 1, 
-        name: 'bulbasaur', 
-        types: [{ type: { name: 'grass' } }], 
-        sprites: { other: { 'official-artwork': { front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png' } } } 
-      }
+      { id: 1, name: 'bulbasaur', sprites: { front_default: '...' } }
     ];
   }
 }
