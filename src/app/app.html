@@ -10,7 +10,9 @@
               <button class="bg-danger text-white p-1 mt-1" style="width: fit-content;">pesquisar</button>
             </div>
             <!-- <p *ngFor="let item of lista">{{ item?.name }}</p> -->
-            <app-card *ngFor="let item of lista" [nome]="item?.name" [id]="item?.id"></app-card>
+                @for (item of lista; track item.id) {
+  <app-card [pokemon]="item"></app-card>
+}
 
             
             <!-- <p class="d-none">{{lista.lenght}}</p> -->
