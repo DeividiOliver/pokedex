@@ -1,9 +1,4 @@
-// Reset e Fonte
-
-/* 1. Mantenha os imports do Angular Material ou outras libs que o professor colocou */
-
-
-/* 2. ADICIONE as nossas variáveis (O "Cérebro" do Design) */
+// 1. Variáveis de Cores dos Tipos (Design System)
 $colors: (
   "grass": #74CB48,
   "fire": #F57D31,
@@ -24,8 +19,20 @@ $colors: (
   "flying": #A891EC
 );
 
-/* 3. ADICIONE este gerador automático (Clean Code) 
-   Isso evita que você tenha que criar classes na mão para cada Pokémon */
+// 2. Reset Global e Tipografia
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F7F7F7;
+  font-family: 'Poppins', sans-serif;
+  color: #1D1D1D;
+}
+
+// 3. Gerador de utilitários de cor (Background e Texto)
 @each $name, $color in $colors {
   .bg-#{$name} { 
     background-color: $color !important; 
@@ -34,27 +41,3 @@ $colors: (
     color: $color !important; 
   }
 }
-
-/* 4. RESET GLOBAL (Pode substituir o seu 'body' ou '*' por este) */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif; // Se você importou a fonte
-}
-
-body {
-  background-color: #F7F7F7; // Cinza claro profissional, igual ao link que você mandou
-}
-
-
-
-.pokedex-container {
-  display: grid;
-  // Isso cria colunas automáticas que se ajustam ao tamanho da tela!
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 25px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 20px auto;
-}/* You can add global styles to this file, and also import other style files */

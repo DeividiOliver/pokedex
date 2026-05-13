@@ -1,4 +1,21 @@
-<div style="border: 1px solid black; padding: 10px; margin: 10px; color: black;">
-  <h3>{{ pokemon?.name }}</h3>
-  <img [src]="pokemon?.sprites?.other?.['official-artwork']?.front_default" [alt]="pokemon?.name">
+<div class="card">
+  <!-- Número de identificação no topo direito -->
+  <span class="id-number">#{{ pokemon?.id | number:'3.0-0' }}</span>
+  
+  <!-- Caixa da imagem com fundo leve -->
+  <div class="img-box">
+    <img [src]="pokemon?.sprites?.other?.['official-artwork']?.front_default" [alt]="pokemon?.name">
+  </div>
+
+  <!-- Nome do Pokémon -->
+  <h3 class="pokemon-name">{{ pokemon?.name }}</h3>
+
+  <!-- Container de tipos com cores dinâmicas -->
+  <div class="types-container">
+    @for (t of pokemon?.types; track t.type.name) {
+      <span class="type-badge" [ngClass]="'bg-' + t.type.name">
+        {{ t.type.name }}
+      </span>
+    }
+  </div>
 </div>

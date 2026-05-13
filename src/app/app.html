@@ -1,12 +1,13 @@
-<main class="bg-dark d-flex justify-content-center">
-  <div class="bg-white w-75 h-100">
-    <div class="bg-secondary py-5 px-3 d-flex flex-column">
-      
-      <!-- O loop deve usar a variável 'pokemonList' que está no seu app.ts -->
-      @for (item of pokemonList; track item.id) {
-        <app-card [pokemon]="item"></app-card>
-      }
+<main class="main-container">
+  <!-- Topo da página (Opcional: Você pode colocar um logo aqui depois) -->
+  <header>
+    <h1 style="color: #666; margin-bottom: 20px;">Pokédex</h1>
+  </header>
 
-    </div>
+  <!-- Container de Grade que configuramos no Passo 2 -->
+  <div class="pokemon-grid">
+    @for (item of pokemonList; track item.id) {
+      <app-card [pokemon]="item"></app-card>
+    }
   </div>
 </main>

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core'; // O erro estava aqui, deve ser @angular/core
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Pokemon } from '../../models/pokemon.model';
 
 @Component({
   selector: 'app-card',
@@ -9,6 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card.scss'
 })
 export class CardComponent {
-  // Mantendo o input obrigatório conforme solicitado para boas práticas
-  @Input({ required: true }) pokemon: any;
+  // Definimos que o input deve obrigatoriamente seguir a interface Pokemon
+  @Input() pokemon?: Pokemon;
 }
