@@ -1,37 +1,29 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { HttpService } from './http.service';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { CardComponent } from './components/card/card';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CommonModule, CardComponent],
+  standalone: true,
+  imports: [CommonModule, CardComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss',
+  styleUrl: './app.scss'
 })
-export class App implements OnInit{
-  pesquisa = "teste"
-  
-  service = inject(HttpService)
+export class AppComponent implements OnInit {
+  // Padronizado para 'lista' para bater com o seu app.html
+  lista: any[] = [];
 
-  lista: any = [];
+  constructor() {}
 
   ngOnInit(): void {
-      this.service.obterPokemon().subscribe(resposta => {
-         this.lista = resposta.results.map(item => ({
-          ...item,
-          id: this.extractIdFromUrl(item.url)
-         }));
-  });
+    // Dados de teste para validar o funcionamento do localhost
+    this.lista = [
+      { 
+        id: 1, 
+        name: 'bulbasaur', 
+        types: [{ type: { name: 'grass' } }], 
+        sprites: { other: { 'official-artwork': { front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png' } } } 
+      }
+    ];
   }
-
-    
-extractIdFromUrl(url: string){
-    const m = url.match(/\/pokemon\/(\d+)\/?$/);
-    return m ? m[1] : null;
-  }
-
 }

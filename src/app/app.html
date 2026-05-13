@@ -1,23 +1,12 @@
 <main class="bg-dark d-flex justify-content-center">
-   <div class="bg-white w-75 h-100">
-       <div class="d-flex align-items-center justify-content-center">
-        <img src="/pokebola.jpeg" alt="" width="150" height="150">
-        <h1>Pokedex</h1>
-       </div>
-       <div class="bg-secondary py-5 px-3 d-flex flex-column">
-              <label for="" class="text-white display-6"> Nome ou número</label>
-              <input type="text" class="rounded border-none w-25 p-1" [(ngModel)]="pesquisa">
-              <button class="bg-danger text-white p-1 mt-1" style="width: fit-content;">pesquisar</button>
-            </div>
-            <!-- <p *ngFor="let item of lista">{{ item?.name }}</p> -->
-                @for (item of lista; track item.id) {
-  <app-card [pokemon]="item"></app-card>
-}
+  <div class="bg-white w-75 h-100">
+    <div class="bg-secondary py-5 px-3 d-flex flex-column">
+      
+      <!-- O loop deve usar a variável 'pokemonList' que está no seu app.ts -->
+      @for (item of pokemonList; track item.id) {
+        <app-card [pokemon]="item"></app-card>
+      }
 
-            
-            <!-- <p class="d-none">{{lista.lenght}}</p> -->
-      </div>
-
-
-
-  </main>
+    </div>
+  </div>
+</main>
