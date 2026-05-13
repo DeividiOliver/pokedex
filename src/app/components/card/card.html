@@ -1,17 +1,20 @@
 <!-- // deixar esse card bonito! -->
-<div class="border-end">
-    <p>{{getPokemonImage(id)}}</p>
-    <p>{{ nome }}</p>
-    <p>{{id}}</p>
-</div>
+<!-- Usamos o id para definir a cor de fundo dinamicamente via classes globais -->
+<div class="pokemon-card" [ngClass]="'bg-type-' + id">
+  
+  <span class="pokemon-card__id">#{{ id | number:'3.0-0' }}</span>
 
-<div class="pokemon-card">
-  <div class="image-container">
-    <img [src]="getPokemonImage(id)" [alt]="nome" class="pokemon-img">
+  <div class="pokemon-card__image-container">
+    <!-- Mantendo a função do seu professor, mas com classe para o CSS Pro -->
+    <img [src]="getPokemonImage(id)" [alt]="nome" class="pokemon-card__img">
   </div>
 
-  <div class="info">
-    <span class="pokemon-id">#{{ id }}</span>
-    <h3 class="pokemon-name">{{ nome }}</h3>
+  <div class="pokemon-card__content">
+    <h3 class="pokemon-card__name">{{ nome }}</h3>
+    
+    <!-- Se o seu professor já tiver a lógica de tipos, podemos adicionar aqui depois -->
+    <div class="pokemon-card__types">
+      <span class="type-badge">Tipo</span>
+    </div>
   </div>
 </div>

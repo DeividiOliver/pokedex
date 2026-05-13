@@ -1,10 +1,53 @@
 // Reset e Fonte
-body {
-  margin: 0;
-  padding: 20px;
-  background-color: #f7f7f7;
-  font-family: 'Inter', sans-serif;
+
+/* 1. Mantenha os imports do Angular Material ou outras libs que o professor colocou */
+@import '@angular/material/prebuilt-themes/indigo-pink.css'; // Exemplo, se houver
+
+/* 2. ADICIONE as nossas variáveis (O "Cérebro" do Design) */
+$colors: (
+  "grass": #74CB48,
+  "fire": #F57D31,
+  "water": #6493EB,
+  "bug": #A7B723,
+  "normal": #AAA67F,
+  "poison": #A43E9E,
+  "electric": #F9CF30,
+  "ground": #DEC16B,
+  "fairy": #E69EAC,
+  "fighting": #C12239,
+  "psychic": #FB5584,
+  "rock": #B69E31,
+  "ghost": #70559B,
+  "ice": #9AD6DF,
+  "dragon": #7037FF,
+  "steel": #B7B9D0,
+  "flying": #A891EC
+);
+
+/* 3. ADICIONE este gerador automático (Clean Code) 
+   Isso evita que você tenha que criar classes na mão para cada Pokémon */
+@each $name, $color in $colors {
+  .bg-#{$name} { 
+    background-color: $color !important; 
+  }
+  .text-#{$name} { 
+    color: $color !important; 
+  }
 }
+
+/* 4. RESET GLOBAL (Pode substituir o seu 'body' ou '*' por este) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif; // Se você importou a fonte
+}
+
+body {
+  background-color: #F7F7F7; // Cinza claro profissional, igual ao link que você mandou
+}
+
+
 
 .pokedex-container {
   display: grid;
