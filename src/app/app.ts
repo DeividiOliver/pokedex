@@ -12,8 +12,8 @@ import { Pokemon } from './models/pokemon.model';
   styleUrl: './app.scss'
 })
 export class AppComponent implements OnInit {
-  // Agora usamos a interface Pokemon[] em vez de any[]
-  pokemonList: Pokemon[] = [];
+  pokemonList: Pokemon[] = [];         // Lista original da API
+  filteredPokemonList: Pokemon[] = []; // Lista que será exibida na tela
 
   constructor(private httpService: HttpService) {}
 
@@ -22,14 +22,22 @@ export class AppComponent implements OnInit {
   }
 
   loadPokemons(): void {
-    // O TypeScript agora sabe que 'data' é um array de Pokemon
     this.httpService.getPokemonList(20, 0).subscribe({
       next: (data: Pokemon[]) => {
         this.pokemonList = data;
-      },
-      error: (err) => {
-        console.error('Erro ao carregar Pokémons:', err);
+        this.filteredPokemonList = data; // Inicialmente, as duas são iguais
       }
     });
+  }
+
+  /**
+   * Filtra a lista baseada no valor digitado no input
+   */
+  onSearchChange(event: any): void {
+    const query = event.target.value.toLowerCase();
+    
+    this.filteredPokemonList = this.pokemonList.filter(pokemon => 
+      pokemon.name.toLowerCase().includes(query)
+    );
   }
 }

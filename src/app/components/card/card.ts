@@ -10,6 +10,5 @@ import { Pokemon } from '../../models/pokemon.model';
   styleUrl: './card.scss'
 })
 export class CardComponent {
-  // Definimos que o input deve obrigatoriamente seguir a interface Pokemon
   @Input() pokemon?: Pokemon;
 }

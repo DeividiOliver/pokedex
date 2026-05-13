@@ -1,13 +1,17 @@
 <main class="main-container">
-  <!-- Topo da página (Opcional: Você pode colocar um logo aqui depois) -->
-  <header>
-    <h1 style="color: #666; margin-bottom: 20px;">Pokédex</h1>
-  </header>
+  <h1>Pokédex</h1>
 
-  <!-- Container de Grade que configuramos no Passo 2 -->
+  <div class="search-container">
+    <input 
+      type="text" 
+      placeholder="Pesquisar Pokémon pelo nome..." 
+      (input)="onSearchChange($event)"
+    >
+  </div>
+
   <div class="pokemon-grid">
-    @for (item of pokemonList; track item.id) {
-      <app-card [pokemon]="item"></app-card>
+    @for (pokemon of filteredPokemonList; track pokemon.id) {
+      <app-card [pokemon]="pokemon"></app-card>
     }
   </div>
 </main>

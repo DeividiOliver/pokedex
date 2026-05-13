@@ -1,71 +1,80 @@
-.card {
-  position: relative;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 12px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  cursor: pointer;
-  border: 1px solid #E0E0E0;
+.pokemon-card {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 
   &:hover {
-    transform: translateY(-5px); // Efeito de levitação
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
-  }
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
 
-  .id-number {
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    font-size: 12px;
-    color: #666;
-    font-weight: bold;
-  }
-
-  .img-box {
-    background-color: #F2F2F2;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    
-    img {
-      width: 140px;
-      height: 140px;
-      object-fit: contain;
-      filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.1));
+    .image-wrapper img {
+      transform: scale(1.15) rotate(3deg);
     }
   }
 
-  .pokemon-name {
-    margin: 8px 0;
-    font-size: 18px;
-    color: #1D1D1D;
-    text-transform: capitalize;
-    font-weight: 600;
+  .pokemon-id {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #cbd5e0;
   }
 
-  .types-container {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: auto; // Empurra os badges para o rodapé do card
-    padding-top: 8px;
+  .image-wrapper {
+    margin-top: -85px; // Puxa a imagem ainda mais para cima
+    margin-bottom: 20px;
+    z-index: 2;
 
-    .type-badge {
-      padding: 4px 14px;
-      border-radius: 12px;
-      font-size: 11px;
-      color: white;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.15));
+      transition: transform 0.4s ease;
+    }
+  }
+
+  .card-info {
+    .pokemon-name {
+      margin-bottom: 15px;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #1e3799; // Azul escuro característico da referência
+      text-transform: capitalize;
+    }
+
+    .types-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .type-label {
+        padding: 8px 18px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        
+        // Cores sólidas e vibrantes
+        &.grass { background: #48d0b0; }
+        &.poison { background: #a040a0; }
+        &.fire { background: #fb6c6c; }
+        &.water { background: #76bdfe; }
+        &.bug { background: #a8b820; }
+        &.electric { background: #ffd86f; color: #555; }
+        &.ground { background: #e0c068; }
+        &.fairy { background: #ee99ac; }
+        &.normal { background: #b1b1b1; }
+      }
     }
   }
 }

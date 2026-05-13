@@ -1,21 +1,24 @@
-<div class="card">
-  <!-- Número de identificação no topo direito -->
-  <span class="id-number">#{{ pokemon?.id | number:'3.0-0' }}</span>
+<div class="pokemon-card" *ngIf="pokemon">
+  <span class="pokemon-id">#{{ pokemon.id | number:'3.0-0' }}</span>
   
-  <!-- Caixa da imagem com fundo leve -->
-  <div class="img-box">
-    <img [src]="pokemon?.sprites?.other?.['official-artwork']?.front_default" [alt]="pokemon?.name">
+  <div class="image-wrapper">
+    <img 
+      [src]="pokemon.sprites.other['official-artwork'].front_default" 
+      [alt]="pokemon.name"
+      loading="lazy"
+    >
   </div>
 
-  <!-- Nome do Pokémon -->
-  <h3 class="pokemon-name">{{ pokemon?.name }}</h3>
-
-  <!-- Container de tipos com cores dinâmicas -->
-  <div class="types-container">
-    @for (t of pokemon?.types; track t.type.name) {
-      <span class="type-badge" [ngClass]="'bg-' + t.type.name">
-        {{ t.type.name }}
+  <div class="card-info">
+    <h3 class="pokemon-name">{{ pokemon.name }}</h3>
+    
+    <div class="types-row">
+      <span 
+        *ngFor="let slot of pokemon.types" 
+        [class]="'type-label ' + slot.type.name"
+      >
+        {{ slot.type.name }}
       </span>
-    }
+    </div>
   </div>
 </div>
