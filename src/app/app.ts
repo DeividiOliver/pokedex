@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { HttpService } from './http.service';
 import { CommonModule } from '@angular/common';
-Linha 6: import { CardComponent } from './components/card/card';
+import { CardComponent } from './components/card/card';
 
 
 @Component({
