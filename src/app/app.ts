@@ -15,6 +15,11 @@ export class AppComponent implements OnInit {
   pokemonList: Pokemon[] = [];         // Lista original da API
   filteredPokemonList: Pokemon[] = []; // Lista que será exibida na tela
 
+  public pagina = 1;
+
+  public offset = 0;
+
+
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {

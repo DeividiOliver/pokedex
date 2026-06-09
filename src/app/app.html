@@ -9,6 +9,12 @@
     >
   </div>
 
+  <div>
+    <button>página anterior</button>
+    <p>{{pagina}}</p>
+    <button>próxima pagina</button>
+  </div>
+
   <div class="pokemon-grid">
     @for (pokemon of filteredPokemonList; track pokemon.id) {
       <app-card [pokemon]="pokemon"></app-card>
