@@ -17,16 +17,13 @@ export class AppComponent implements OnInit {
 
   public pagina = 1;
 
-  public offset = 0;
-
-
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.loadPokemons();
   }
 
-  /**
+/**
    * Altera a página atual, recalcula o offset e busca os novos dados na API.
    * @param acao Define a direção da paginação ('avancar' ou 'voltar')
    */
@@ -46,6 +43,9 @@ export class AppComponent implements OnInit {
     // Dispara a busca na API com o novo valor de offset atualizado
     this.loadPokemons();
   }
+
+
+
   loadPokemons(): void {
     this.httpService.getPokemonList(20, this.offset).subscribe({
       next: (data: Pokemon[]) => {
