@@ -26,8 +26,28 @@ export class AppComponent implements OnInit {
     this.loadPokemons();
   }
 
+  /**
+   * Altera a página atual, recalcula o offset e busca os novos dados na API.
+   * @param acao Define a direção da paginação ('avancar' ou 'voltar')
+   */
+  mudarPagina(acao: string): void {
+    if (acao === 'avancar') {
+      // Pega o valor atual da página e soma 1
+      this.pagina = this.pagina + 1; 
+      
+    } else if (acao === 'voltar' && this.pagina > 1) {
+      // Pega o valor atual da página e subtrai 1
+      this.pagina = this.pagina - 1; 
+    }
+
+    // Calcula o novo ponto de partida (offset) para a API
+    this.offset = (this.pagina - 1) * 20;
+    
+    // Dispara a busca na API com o novo valor de offset atualizado
+    this.loadPokemons();
+  }
   loadPokemons(): void {
-    this.httpService.getPokemonList(20, 0).subscribe({
+    this.httpService.getPokemonList(20, this.offset).subscribe({
       next: (data: Pokemon[]) => {
         this.pokemonList = data;
         this.filteredPokemonList = data; // Inicialmente, as duas são iguais
